@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+	<class name="Gonglue" table="t_gonglue">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="title" length="100" />
+		<property name="miaoshu" length="2000" />
+		<property name="content" type="text" />
+		<property name="filePath" length="500" />
+		<property name="tjzs" length="15" />
+		<property name="headImg" length="50" />
+		<property name="time" type="java.util.Date" />
+		<many-to-one name="address" class="Address" column="address_id"></many-to-one>
+	</class>
+</hibernate-mapping>

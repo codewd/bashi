@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+	<class name="News" table="t_news">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="title" length="50" />
+		<property name="content" type="text"/>
+		<property name="auther" length="15" />
+		<property name="click" />
+		<property name="ip" length="15" />
+		<property name="topImg" length="50" />
+		<property name="filePath" length="50" />
+		<property name="brief" length="500" />
+		<property name="url" length="100" />
+		<property name="date" length="10" />
+		<property name="flag" />
+		<property name="time" type="java.util.Date" />
+		<many-to-one name="type" column="type_id" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

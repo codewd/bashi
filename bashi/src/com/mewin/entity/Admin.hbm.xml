@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+	<class name="Admin" table="t_admin">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="account" length="15" />
+		<property name="psw" length="15" />
+		<property name="name" length="15" />
+		<property name="bz" length="15" />
+		<property name="time" type="date" />
+	</class>
+</hibernate-mapping>

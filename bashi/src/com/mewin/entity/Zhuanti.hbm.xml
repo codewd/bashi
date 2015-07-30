@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+	<class name="Zhuanti" table="t_zhuanti">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="zbt" length="100" />
+		<property name="fbt" length="100" />
+		<property name="headImg" length="50" />
+		<property name="dzzz" length="100" />
+		<property name="jianjie" length="1000" />
+		<property name="luxian" length="1000" />
+		<set name="subzts" cascade="all">
+			<key column="zhuanti_id"/>
+			<one-to-many class="Subzt"/>
+		</set>
+	</class>
+</hibernate-mapping>

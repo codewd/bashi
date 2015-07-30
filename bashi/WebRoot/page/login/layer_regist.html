@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>登陆</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="../../config/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="../../config/assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="../../config/assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<!-- fonts -->
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="../../config/assets/css/ace.min.css" />
+<link rel="stylesheet" href="../../config/assets/css/ace-rtl.min.css" />
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="../../config/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+<!--[if lt IE 9]>
+		<script src="../../config/assets/js/html5shiv.js"></script>
+		<script src="../../config/assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="login-layout"
+	style="background-color: #ffffff;margin:0px;padding:0px;">
+	<div id="login-box" class="login-box visible widget-box no-border"
+		style="background-color:#ffffff;padding:0px;margin-top:-2px;margin-bottom: -2px;">
+		<div class="widget-body">
+			<div class="widget-main">
+				<h4 class="header blue lighter bigger">
+					<i class="icon-coffee green"></i> 请注册
+				</h4>
+
+				<div class="space-6"></div>
+
+				<form id="form1">
+					<fieldset>
+						<label class="block clearfix"> <span
+							class="block input-icon input-icon-right"> <input
+								type="text" class="form-control" name="account"
+								placeholder="用户名／邮箱／手机号" > <i class="icon-user"></i>
+						</span>
+						</label> <label class="block clearfix"> <span
+							class="block input-icon input-icon-right"> <input
+								type="password" class="form-control" name="psw"
+								placeholder="密码,最少6位" > <i class="icon-lock"></i>
+						</span>
+						</label> <label class="block clearfix"> <span
+							class="block input-icon input-icon-right"> <input
+								type="password" class="form-control" name="psw1"
+								placeholder="再次输入密码" > <i class="icon-lock"></i>
+						</span>
+						</label> <label class="block clearfix"> <span
+							class="block input-icon input-icon-right"> <input
+								id="vcode" type="text" name="vCode" class="col-xs-6" alt="点击更换"
+								style="padding:8px" placeholder="验证码" width="50" > <img id="vImg"
+								class="col-xs-6" src="user_vCode.htm" height="34"
+								onclick="this.src = 'user_vCode.htm'" />
+						</span>
+						</label> <label class="block clearfix"> <span id="msg"
+							class="block input-icon input-icon-right">&nbsp; </span>
+						</label>
+
+						<div class="space"></div>
+
+						<div class="clearfix">
+							<button type="button" onclick="registUser()"
+								class="width-35 pull-right btn btn-sm btn-primary">
+								<i class="icon-key"></i> 注册
+							</button>
+						</div>
+
+						<div class="space-4"></div>
+					</fieldset>
+				</form>
+
+
+
+
+			</div>
+			<!-- /widget-main -->
+
+		</div>
+		<!-- /widget-body -->
+	</div>
+	<!-- /login-box -->
+	<script src="../../config/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		function registUser() {
+			//获取当前窗口索引
+			//var index = parent.layer.getFrameIndex(window.name);
+			$.post("user_f_regist.htm", $("#form1").serialize(),
+					function(data) {
+						if (data == 1) {
+							alert("注册成功");
+							window.location.href = "layer_login.html"
+						} else {
+							$("#msg").html("验证码错误！")
+							$("#vImg").attr("src", "user_vCode.htm?uuid="+Math.random());
+						}
+					})
+		}
+	</script>
+</body>
+</html>

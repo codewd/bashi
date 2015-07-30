@@ -1,0 +1,15 @@
+document.writeln("<footer>");
+document.writeln("			<div class=\"container_12\">");
+document.writeln("				<div class=\"grid_12\">");
+document.writeln("					<div class=\"socials\">");
+document.writeln("						<a href=\"#\" class=\"fa fa-facebook\"></a>");
+document.writeln("						<a href=\"#\" class=\"fa fa-twitter\"></a>");
+document.writeln("						<a href=\"#\" class=\"fa fa-google-plus\"></a>");
+document.writeln("					</div>");
+document.writeln("					<div class=\"copy\">");
+document.writeln("						巴士 (c) 2015 |备案号：<a href='http://www.miitbeian.gov.cn' target='_blank'>蒙ICP备15002149号-1</a>| 地址：（内蒙古呼和浩特市）|<br>联系方式（0471-8812136） QQ 1552788084|意见反馈（反馈邮箱）tripbs@sina.cn");
+document.writeln("						<p>巴士让所有旅行者体验尊贵、实惠的定制服务</p>");
+document.writeln("					</div>");
+document.writeln("				</div>");
+document.writeln("			</div>");
+document.writeln("		</footer>");

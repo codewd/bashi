@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+	<class name="Type" table="t_type">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="title" length="30" />
+		
+		<many-to-one name="father" column="father_id" class="Type" lazy="false"/>
+		
+		<set name="childs" cascade="delete" lazy="false">
+			<key column="father_id"/>
+			<one-to-many class="Type"/>
+		</set>
+	</class>
+</hibernate-mapping>

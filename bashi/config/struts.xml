@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 把扩展名配置为action -->
+	<constant name="struts.action.extension" value="action,UI,htm"></constant>
+	<!-- 把主题配置为simple -->
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.multipart.maxSize" value="1070109600"></constant>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="timeout" class="com.mewin.interceptor.LoginTimeout"></interceptor>
+			<interceptor name="login" class="com.mewin.interceptor.LoginIntercepter"></interceptor>
+			<interceptor-stack name="permissionStack">
+				<interceptor-ref name="timeout"></interceptor-ref>
+				<interceptor-ref name="login"></interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="modelDriven.refreshModelBeforeResult">false</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<global-results>
+			<result name="login_ui">${request.contextPath}/ui/admin/admin_login.jsp</result>
+		</global-results>
+		
+		<action name="user_*" class="userAction" method="{1}">
+			<interceptor-ref name="permissionStack"/>
+			<result name="loginUI">${request.contextPath}/ui/user/admin_login.jsp</result>
+			<result name="main">${request.contextPath}/ui/user/main.jsp</result>
+			<result name="addUI">${request.contextPath}/ui/user/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/user/list.jsp</result>
+			<result name="toList" type="redirectAction">user_list.htm</result>
+		</action>
+		<action name="news_*" class="newsAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/news/add.jsp</result>
+			<result name="editUI">${request.contextPath}/ui/news/edit.jsp</result>
+			<result name="list">${request.contextPath}/ui/news/list.jsp</result>
+			<result name="uploadImg">${request.contextPath}/ui/other/uploadImg.jsp</result>
+			<result name="toList" type="redirectAction">news_list.htm</result>
+		</action>
+		<action name="jiaonuan_*" class="jiaonuanAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/jiaonuan/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/jiaonuan/list.jsp</result>
+			<result name="upLoadImg">${request.contextPath}/ui/jiaonuan/uploadImg.jsp</result>
+			<result name="toList" type="redirectAction">jiaonuan_list.htm</result>
+		</action>
+		<action name="order_*" class="orderAction" method="{1}">
+			<result name="addUI">${request.contextPath}/ui/order/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/order/list.jsp</result>
+			<result name="toList" type="redirectAction">order_list.htm</result>
+		</action>
+		<action name="gonglue_*" class="gonglueAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/gonglue/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/gonglue/list.jsp</result>
+			<result name="toList" type="redirectAction">gonglue_list.htm?pageNum=1</result>
+		</action>
+		<action name="address_*" class="addressAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/address/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/address/list.jsp</result>
+			<result name="toList" type="redirectAction">address_list.htm</result>
+		</action>
+		<action name="admin_*" class="adminAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="loginUI">${request.contextPath}/ui/admin/admin_login.jsp</result>
+			<result name="main">${request.contextPath}/ui/admin/main.jsp</result>
+			<result name="addUI">${request.contextPath}/ui/admin/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/admin/list.jsp</result>
+			<result name="toList" type="redirectAction">admin_list.htm</result>
+		</action>
+		<action name="type_*" class="typeAction" method="{1}">
+		<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/type/add.jsp</result>
+			<result name="addFatherUI">${request.contextPath}/ui/type/addFather.jsp</result>
+			<result name="addSonUI">${request.contextPath}/ui/type/addSon.jsp</result>
+			<result name="list">${request.contextPath}/ui/type/list.jsp</result>
+			<result name="toList" type="redirectAction">type_list.htm</result>
+		</action>
+		<action name="zhuanti_*" class="zhuantiAction" method="{1}">
+			<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/zhuanti/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/zhuanti/list.jsp</result>
+			<result name="toList" type="redirectAction">zhuanti_list.htm</result>
+		</action>
+		<action name="subzt_*" class="subztAction" method="{1}">
+			<interceptor-ref name="permissionStack"/>
+			<result name="addUI">${request.contextPath}/ui/subzt/add.jsp</result>
+			<result name="list">${request.contextPath}/ui/subzt/list.jsp</result>
+			<result name="toList" type="redirectAction">subzt_list.htm</result>
+		</action>
+		
+		<!-- other action,no permission,this is public -->
+		<action name="vcode" class="adminAction" method="vCode"/>
+		<action name="login" class="userAction" method="login">
+			<result name="loginUI">${request.contextPath}/ui/user/admin_login.jsp</result>
+			<result name="main">${request.contextPath}/ui/user/main.jsp</result>
+		</action>
+		<action name="admin_login" class="adminAction" method="login">
+			<result name="loginUI">${request.contextPath}/ui/admin/admin_login.jsp</result>
+			<result name="main">${request.contextPath}/ui/admin/main.jsp</result>
+		</action>
+		<action name="adminLoginUI" class="adminAction" method="loginUI">
+			<result name="adminLoginUI">${request.contextPath}/ui/admin/admin_login.jsp</result>
+		</action>
+		
+		<action name="newsflist" class="newsAction" method="f_list"></action>
+		<action name="newsfbake" class="newsAction" method="f_bake"></action>
+		<action name="orderfadd" class="orderAction" method="f_add"></action>
+		<action name="zhuantiflist" class="zhuantiAction" method="f_list"></action>
+		<action name="subztflist" class="subztAction" method="f_list"></action>
+		<action name="addressflist" class="addressAction" method="f_new_list"></action>
+		<action name="addressfgetId" class="addressAction" method="f_getId"></action>
+		<action name="gonglueflist" class="gonglueAction" method="f_list"></action>
+		<action name="jiaonuanfadd" class="jiaonuanAction" method="f_add"></action>
+		<action name="zhuantifgetOne" class="zhuantiAction" method="f_getOne"></action>
+		<action name="fgetListByAddress" class="gonglueAction" method="f_getListByAddress"></action>
+		
+		
+	</package>
+</struts>    

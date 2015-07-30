@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Special Offers</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="旅游度假,巴士旅游网,让生活简单,旅游看攻略,专题旅游,许愿出行,旅行" />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="logo.ico">
+    <link rel="shortcut icon" href="logo.ico"/>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/myjs.js"></script>
+    <link rel="stylesheet" href="../config/layer/skin/layer.css" />
+		<script src="../config/layer/layer.js"></script>
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+            <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"
+                 height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a>
+    </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <link rel="stylesheet" media="screen" href="css/ie.css">
+    <![endif]-->
+</head>
+<body>
+<!--==============================header=================================-->
+<header>
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="menu_block">
+                <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                    <ul class="sf-menu">
+                        <li><a href="index.html">主页</a></li>
+                        <li><a href="index-1.html">专题旅游</a></li>
+                        <li class="current"><a href="index-2.html">看攻略</a></li>
+                        <li><a href="index-3.html">巴客一族</a></li>
+                        <li><a href="index-4.html">时间胶囊</a></li>
+                    </ul>
+                </nav>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="grid_12">
+            <h1>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="巴士旅游网">
+                </a>
+            </h1>
+        </div>
+    </div>
+</header>
+<!--==============================Content=================================-->
+<div class="content">
+    <div class="container_12" style="width: 1200px;">
+        <div class="grid_8" style="width: 900px">
+            <h3 id="zbt"></h3>
+
+            <div class="block2" id="dzzz">
+
+            </div>
+
+        </div>
+        <div class="grid_3 " style="padding-left: 30px;margin-top: 15px;">
+            <h5>旅游路线</h5>
+            <ul class="list address" id="luxian">
+                
+            </ul>
+            <a href="#" class="link1">所有<span class="low"></span></a>
+        </div>
+    </div>
+</div>
+<!--==============================footer=================================-->
+<script type="text/javascript" src="js/footer.js"></script>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    $(function () {
+        //获取url参数
+        var id = getQueryString("id");
+        //AJAX获取数据
+        $.post("zhuantifgetOne.htm?id="+id,function(data){
+            $.each(JSON.parse(data),function(i,c){
+//                alert(c.dzzz)
+                var con = "<iframe style='border: 0' height='650' width='900' src='"+ c.dzzz +"' ></iframe>"
+                $("#dzzz").append(con);
+                $("#zbt").html(c.zbt);
+                
+                var lx = "";
+                
+                var lxs= c.luxian.split("0");
+                
+                for(var i = 0 ; i< lxs.length;i++){
+                	lx+= "<li><a href='javascript:showLayer()'>"+lxs[i]+"</a></li>";
+                }
+                
+                $("#luxian").append(lx);
+                
+            })
+        }).success(function(){
+//            alert("OK");
+        })
+    })
+    function showLayer(){
+    	layer.open({
+		    type: 2,
+		    title: '填写意向单',
+		    shadeClose: true,
+		    shade: 0.8,
+		    area: ['415px', '720px'],
+		    content: ['grid.html','no'] //iframe的url
+		}); 
+    }
+</script>
+</body>
+</html>

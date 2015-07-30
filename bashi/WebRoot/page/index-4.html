@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>时间胶囊</title>
+		<meta charset="utf-8">
+		<meta name="keywords" content="巴士旅游网,让生活简单,旅游看攻略,专题旅游,许愿出行,旅行" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="icon" href="logo.ico">
+		<link rel="shortcut icon" href="logo.ico" />
+		<link rel="stylesheet" href="css/form.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="jquery-validation-engine/css/validationEngine.jquery.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.2.1.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/TMForm.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.mobilemenu.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		 <script src="jquery-validation-engine/js/jquery.validationEngine-zh_CN.js"></script>
+        <script src="jquery-validation-engine/js/jquery.validationEngine.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body>
+<!--==============================header=================================-->
+		<header>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="menu_block">
+						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+							<ul class="sf-menu">
+								<li><a href="index.html">主页</a></li>
+								<li><a href="index-1.html">专题旅游</a></li>
+								<li><a href="index-2.html">看攻略</a></li>
+								<li><a href="index-3.html">巴客一族</a></li>
+								<li class="current"><a href="index-4.html">时间胶囊</a></li>
+							</ul>
+						</nav>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="grid_12">
+					<h1>
+						<a href="index-gird.html">
+							<img src="images/logo.png" alt="巴士旅游网">
+						</a>
+					</h1>
+				</div>
+			</div>
+		</header>
+<!--==============================Content=================================-->
+		<div class="content">
+			<div class="container_12">
+				<div class="grid_5">
+					<h3>去年今日，许下你的愿望</h3>
+					<div class="map">
+						<p>时间胶囊每天开放，每周会选出一名幸运者，可享受“免费出游”大礼包哦，赶快行动吧，把你的愿望告诉巴士。<span class="col1"><a href="#" rel="nofollow">先到先得哦。</a></span></p>
+						<p>赶快行动吧。 <span class="col1"><a href="" rel="nofollow">就在此刻</a></span></p>
+						<div class="clear"></div>
+						<figure class="">
+							<img src="../file/roll/jiaonuan.jpg" height='380' width='380'>  
+                            <!-- <iframe src="baidumap.html" frameBorder=0 height=378 width=311 scrolling=no></iframe>
+ -->                        </figure>
+						<address>
+							<!-- <dl>
+								<dt>巴士 <br>
+                                    地址:呼和浩特新华大街<br>
+                                    8号十九中西边
+								</dt>
+							<dd><span>电话:</span>+1 800 559 6580</dd>
+								<dd><span>Telephone:</span>+1 800 603 6035</dd>
+								<dd><span>FAX:</span>+1 800 889 9898</dd>
+								<dd>邮箱: <a href="#" class="col1">bashi@163.com.cn</a></dd>
+							</dl> -->
+						</address>
+					</div>
+				</div>
+				<div class="grid_6 prefix_1">
+					<h3>时间胶囊</h3>
+					<form id="form">
+						<label class="name">
+							<input class="validate[required] validate[minSize[1]] validate[maxSize[20]]" name="name" type="text" placeholder="姓名:" />
+						</label>
+						<label class="email">
+							<input class="validate[required] validate[custom[phone]]" name="phone" type="text" placeholder="联系电话:"  />
+						</label>
+						<label class="country">
+							<input class="validate[required] validate[custom[chinaIdLoose]" name="idCard" type="text" placeholder="身份证号码:" />
+						</label>
+                        <label class="email">
+                            <input class="validate[required] validate[custom[chinese]] validate[minSize[1]] validate[maxSize[80]]" name="address" type="text" placeholder="居住地:" />
+                        </label>
+						<label class="message">
+							<textarea  class="validate[required] validate[minSize[10]] validate[maxSize[500]]" name="yuanwang" placeholder="用你最快的打字速度，在这里许下愿望吧:"></textarea>
+						</label>
+						<div>
+							<div class="clear"></div>
+							<div class="btns">
+								<!--<a href="#" data-type="reset" class="btn">Clear</a>-->
+								<a href="#"  class="btn submit_a">交给巴士</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+	<script type="text/javascript" src="js/footer.js"></script>
+		<script>
+		$(function (){
+			$('#form').validationEngine();
+			$(".submit_a").on("click",function(){
+				
+				var b = jQuery('#form').validationEngine('validate');
+				/* alert(b) */
+				
+				if(b){
+					 $.post("jiaonuanfadd.htm", $("#form").serialize(), function() {
+						}).success(function(data){
+							if (data == 1) {
+								alert("数据提交成功")
+								location.reload();
+							} else {
+								alert("数据提交异常")
+							}
+						})
+				}else{
+					/* alert("数据格式有误！") */
+				}
+				
+			})
+		})
+		</script>
+	</body>
+</html>

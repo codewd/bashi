@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mewin.entity">
+<class name="Subzt" table="t_subzt">
+  <id name="id"><generator class="native"/></id>
+  <property name="title" length="50"/>
+  <property name="brief" length="2000"/>
+  <property name="content" type="text"/>
+  <property name="url" length="100"/>
+  <property name="img" length="50" />
+  <property name="time" type="java.util.Date"/>
+  
+  <many-to-one name="father_address" class="Address" column="father_address_id" lazy="false"/>
+  <many-to-one name="son_address" class="Address" column="son_address_id" lazy="false"/>
+  <many-to-one name="zhuanti" class="Zhuanti" column="zhuanti_id"  lazy="false"/>
+  
+</class>
+</hibernate-mapping>

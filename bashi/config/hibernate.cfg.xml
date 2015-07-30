@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+
+	<!-- 1.数据库链接信息-->
+	<property name="dialect">
+		org.hibernate.dialect.MySQL5InnoDBDialect
+	</property>
+	<!-- 2.其他配置 自动建表，二级缓存，显示sql语句 -->
+	<property name="show_sql">false</property>
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 3.导入映射文件 -->
+	<mapping resource="com/mewin/entity/User.hbm.xml" />
+	<mapping resource="com/mewin/entity/Gonglue.hbm.xml" />
+	<mapping resource="com/mewin/entity/Order.hbm.xml" />
+	<mapping resource="com/mewin/entity/Jiaonuan.hbm.xml" />
+	<mapping resource="com/mewin/entity/News.hbm.xml" />
+	<mapping resource="com/mewin/entity/Type.hbm.xml" />
+	<mapping resource="com/mewin/entity/Address.hbm.xml" />
+	<mapping resource="com/mewin/entity/Zhuanti.hbm.xml" />
+	<mapping resource="com/mewin/entity/Admin.hbm.xml" />
+	<mapping resource="com/mewin/entity/Subzt.hbm.xml" />
+
+</session-factory>
+
+</hibernate-configuration>
